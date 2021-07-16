@@ -1,7 +1,7 @@
 {
   "name": "@cairui/midway-tcpserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "midway自定义TcpServer框架",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -9,16 +9,25 @@
     "build": "tsc",
     "test": "jest"
   },
-  "author": "",
+  "author": "wgcairui@icloud.com",
   "license": "ISC",
+  "keywords": [
+    "midway",
+    "tcp",
+    "tcpserver",
+    "tcpsocket"
+  ],
+  "repository": {
+    "url": "https://github.com/wgcairui/midway-tcpserver.git"
+  },
   "devDependencies": {
+    "@midwayjs/decorator": "^2.11.1",
     "@midwayjs/mock": "^2.11.4",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.3.2",
     "jest": "^27.0.6"
   },
   "dependencies": {
-    "@midwayjs/decorator": "^2.11.1",
     "@midwayjs/core": "^2.11.4",
     "@midwayjs/logger": "^2.11.3"
   }
