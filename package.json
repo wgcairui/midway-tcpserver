@@ -1,11 +1,11 @@
 {
-  "name": "midway-tcpserver",
+  "name": "@cairui/midway-tcpserver",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
   "scripts": {
-    
+    "push": "tsc ;npm publish --access public",
     "build": "tsc",
     "test": "jest"
   },
