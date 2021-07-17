@@ -3,6 +3,10 @@
 
 ## midway自定义TcpServer框架
 
+```
+npm i -S @cairui/midway-tcpserver
+```
+
 *实现了自定义装饰器*
 *@TCPControll注册类
 
