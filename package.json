@@ -7,7 +7,7 @@
   "scripts": {
     "push": "tsc ;npm publish --access public",
     "build": "tsc",
-    "test": "jest"
+    "test": "midway-bin test --ts  --forceExit"
   },
   "author": "wgcairui@icloud.com",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "url": "https://github.com/wgcairui/midway-tcpserver.git"
   },
   "devDependencies": {
+    "@midwayjs/cli": "^1.2.74",
     "@midwayjs/decorator": "^2.11.1",
     "@midwayjs/mock": "^2.11.4",
     "@types/jest": "^26.0.24",
