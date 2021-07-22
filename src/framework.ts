@@ -11,10 +11,10 @@ interface TCPMethod {
 export class MidwayTcpServerFarmework extends BaseFramework<IMidwayTcpApplication, IMidwayTcpContext, IMidwayTcpConfigurationOptions>{
     public app!: IMidwayTcpApplication
 
+
     async applicationInitialize(options: Partial<IMidwayTcpConfigurationOptions>) {
-        this.app = new net.Server({ allowHalfOpen: this.configurationOptions.allowHalfOpen, pauseOnConnect: this.configurationOptions.pauseOnConnect }) as IMidwayTcpApplication
-
-
+        this.app = new net.Server() as IMidwayTcpApplication
+        this.app.sockets = new Set()
     }
 
 
@@ -38,6 +38,9 @@ export class MidwayTcpServerFarmework extends BaseFramework<IMidwayTcpApplicatio
 
     protected async beforeStop() {
         return await new Promise<void>(resolve => {
+            this.app.sockets.forEach(socket => {
+                socket.destroy()
+            })
             this.app.close(() => {
                 resolve()
             })
@@ -72,6 +75,12 @@ export class MidwayTcpServerFarmework extends BaseFramework<IMidwayTcpApplicatio
     private async addEmint(target: any, providerId: string) {
 
         this.app.on("connection", async (socket: IMidwayTcpContext) => {
+            
+
+            this.app.sockets.add(socket)
+            socket.on("close", () => {
+                this.app.sockets.delete(socket)
+            })
             // 注册上下文
             this.app.createAnonymousContext(socket)
             // 注册组件

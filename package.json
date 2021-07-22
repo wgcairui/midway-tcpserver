@@ -1,6 +1,6 @@
 {
   "name": "@cairui/midway-tcpserver",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "midway自定义TcpServer框架",
   "main": "dist/index",
   "typings": "dist/index.d.ts",
